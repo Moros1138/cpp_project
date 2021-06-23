@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 ###############################################################################
 #          VS Code: C/C++ Project Template
 #                     v0.01
@@ -6,13 +6,23 @@
 #       By: Moros Smith <moros1138@gmail.com>
 ###############################################################################
 
-# TODO: script is in path? no, eeeeer crashhhhhhh
+# find ourself so we can open ourself later
+SELF="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+SELF="$SELF/cpp_project"
 
-# TODO: curl installed? no, errrrr crashhhhh
+# requires curl
+if [ -z "$(which curl)" ]; then
+	echo 'This script requires curl, try "sudo apt install curl"'
+    exit 1
+fi
 
-# TODO: git installed? no, errrrrr crash
+# requires git
+if [ -z "$(which git)" ]; then
+	echo 'This script requires git, try "sudo apt install git"'
+    exit 1
+fi
 
-# TODO: if we've made it this far, let's do it!
+# if we make it here, our environment is ready!
 
 # prompt for the project name
 read -p "Project Name? (default: MyApp) " project_name
@@ -73,7 +83,7 @@ PAYLOAD_LINE=$(awk '/^__PAYLOAD_BEGINS__/ { print NR + 1; exit 0; }' $0)
 #
 #   3.  uses tar to unzip and extract the archive
 
-tail -n +${PAYLOAD_LINE} $(which $0) | base64 --decode - | tar xz
+tail -n +${PAYLOAD_LINE} $SELF | base64 --decode - | tar xz
 
 ###############################################################################
 # END: LOAD THE ARCHIVE FROM THE END OF THE SCRIPT
