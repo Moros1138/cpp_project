@@ -1,10 +1,18 @@
 #!/bin/bash
 ###############################################################################
 #          VS Code: C/C++ Project Template
-#                     v0.02
+#                     v0.03
 #
 #       By: Moros Smith <moros1138@gmail.com>
 ###############################################################################
+
+echo '##########################################################'
+echo '#          VS Code: C/C++ Project Template'
+echo '#                     v0.03'
+echo '#'
+echo '#       By: Moros Smith <moros1138@gmail.com>'
+echo '##########################################################'
+echo ''
 
 # find ourself so we can open ourself later
 SELF="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
@@ -56,6 +64,9 @@ if [ -z "$project_name" ]; then
 	project_name=MyApp
 fi
 
+echo ''
+echo -n 'Generating archive....'
+
 # create project directory
 mkdir $project_name
 
@@ -89,58 +100,74 @@ tail -n +${PAYLOAD_LINE} $SELF | base64 --decode - | tar xz
 # END: LOAD THE ARCHIVE FROM THE END OF THE SCRIPT
 ###############################################################################
 
+echo ' done.'
+echo ''
+
 # cycle through the libraries, one at a time
 for lib in $project_libs
 do
     
-    echo "Retrieving $lib"
+    echo -n "Retrieving $lib..."
     
     # Javid's olc::PixelGameEngine
     #
     # https://github.com/OneLoneCoder/olcPixelGameEngine
     if [ "$lib" = "olcPixelGameEngine" ]; then
-        curl -L https://github.com/OneLoneCoder/olcPixelGameEngine/releases/download/v2.16/olcPixelGameEngine.h -o include/olcPixelGameEngine.h
-        curl https://raw.githubusercontent.com/OneLoneCoder/olcPixelGameEngine/master/olcExampleProgram.cpp -o src/main.cpp
+        curl -s -L https://github.com/OneLoneCoder/olcPixelGameEngine/releases/download/v2.16/olcPixelGameEngine.h -o include/olcPixelGameEngine.h
+        curl -s https://raw.githubusercontent.com/OneLoneCoder/olcPixelGameEngine/master/olcExampleProgram.cpp -o src/main.cpp
     fi
     
     # Javid's Sound PGEX
     #
     # https://github.com/OneLoneCoder/olcPixelGameEngine/blob/master/Extensions/olcPGEX_Sound.h
     if [ "$lib" = "olcPGEX_Sound" ]; then
-        curl https://raw.githubusercontent.com/OneLoneCoder/olcPixelGameEngine/master/Extensions/olcPGEX_Sound.h -o include/olcPGEX_Sound.h
+        curl -s https://raw.githubusercontent.com/OneLoneCoder/olcPixelGameEngine/master/Extensions/olcPGEX_Sound.h -o include/olcPGEX_Sound.h
     fi
     
     # Gorbit's Gamepad PGEX
     #
     # https://github.com/gorbit99/olcPGEX_Gamepad
     if [ "$lib" = "olcPGEX_Gamepad" ]; then
-        curl https://raw.githubusercontent.com/gorbit99/olcPGEX_Gamepad/master/olcPGEX_Gamepad.h -o include/olcPGEX_Gamepad.h
+        curl -s https://raw.githubusercontent.com/gorbit99/olcPGEX_Gamepad/master/olcPGEX_Gamepad.h -o include/olcPGEX_Gamepad.h
     fi
     
     # SaladinAkara's Animated Sprite PGEX
     #
     # https://github.com/matt-hayward/olcPGEX_AnimatedSprite
     if [ "$lib" = "olcPGEX_AnimatedSprite" ]; then
-        curl https://raw.githubusercontent.com/matt-hayward/olcPGEX_AnimatedSprite/master/olcPGEX_AnimatedSprite.h -o include/olcPGEX_AnimatedSprite.h
+        curl -s https://raw.githubusercontent.com/matt-hayward/olcPGEX_AnimatedSprite/master/olcPGEX_AnimatedSprite.h -o include/olcPGEX_AnimatedSprite.h
     fi
     
     # Robin Berg Pettersen's Tileson
     #
     # https://github.com/SSBMTonberry/tileson
     if [ "$lib" = "Tileson" ]; then
-        curl -L https://github.com/SSBMTonberry/tileson/releases/download/v1.3.0/tileson.hpp -o include/tileson.hpp
+        curl -s -L https://github.com/SSBMTonberry/tileson/releases/download/v1.3.0/tileson.hpp -o include/tileson.hpp
     fi
+    
+    echo ' done.'
 
 done
 
+echo ''
+echo -n 'String replacements....'
+
 # string replacements
 sed -i "s/{{BINARY_NAME}}/$project_name/g" Makefile
+sed -i "s/{{BINARY_NAME}}/$project_name/g" Makefile.emscripten
 sed -i "s/{{BINARY_NAME}}/$project_name/g" .gitignore
 sed -i "s/{{BINARY_NAME}}/$project_name/g" .vscode/launch.json
 
+echo ' done.'
+echo ''
+
+# prompt for Emscripten support
+read -p "Would you like to include a Makefile to build with Emscripten? (y/n) " temp
+if [ "$temp" != "y" ]; then rm Makefile.emscripten; temp=""; fi
+
 # prompt for Git repository
 read -p "Initialize a Git Repository? (y/n) " temp
-if [ "$temp" = "y" ]; then git init; git add .; git commit -m "initial commit"; temp=""; fi
+if [ "$temp" = "y" ]; then git init &> /dev/null; git add .; git commit -m "initial commit" &> /dev/null; temp=""; fi
 
 # prompt for opening the project in VS Code
 read -p "Open project in VS Code? (y/n) " temp

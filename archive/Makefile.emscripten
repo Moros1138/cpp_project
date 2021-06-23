@@ -1,0 +1,44 @@
+PROJECT     := {{BINARY_NAME}}
+
+RELEASE     := -O3 
+DEBUG		:= -O0 -g
+
+BUILD		:= $(DEBUG)
+
+CXX_FLAGS   := -std=c++17 $(BUILD)
+CXX         := em++
+
+ASSETS		:= assets
+BIN         := bin
+SRC         := src
+INC         := include
+LIB         := lib
+OBJ         := obj
+RES         := res
+
+INC_FLAG    := -I$(INC)
+LIB_FLAG    := -L$(LIB)
+
+LXX_FLAGS	:= --preload-file $(ASSETS) -s ALLOW_MEMORY_GROWTH=1
+
+LIBRARIES   := -s MAX_WEBGL_VERSION=2 -s MIN_WEBGL_VERSION=2 -s USE_LIBPNG=1
+
+SOURCES     := $(wildcard $(SRC)/*.cpp)
+OBJECTS     := $(patsubst $(SRC)/%,$(OBJ)/%,$(SOURCES:.cpp=.wasm.o))
+
+.PHONY: clean all
+
+all: $(BIN)/$(PROJECT).html
+
+# Compile only
+$(OBJ)/%.wasm.o : $(SRC)/%.cpp $(DEPENDENCIES)
+	$(CXX) $(CXX_FLAGS) $(INC_FLAG) -c -o $@ $<
+
+# Link the object files and libraries
+$(BIN)/$(PROJECT).html : $(OBJECTS)
+	$(CXX) $(CXX_FLAGS) -o $(BIN)/$(PROJECT).html $^ $(LXX_FLAGS) $(LIBRARIES) $(LIB_FLAG)
+
+# .PHONY: clean
+
+clean:
+	rm -rf $(BIN)/$(PROJECT).* $(OBJ)/*.wasm.o
