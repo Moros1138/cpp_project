@@ -1,14 +1,33 @@
 #!/bin/bash
 ###############################################################################
 #          VS Code: C/C++ Project Template
-#                     v0.03
+#                     v0.04
 #
 #       By: Moros Smith <moros1138@gmail.com>
 ###############################################################################
 
+# HISTORY
+#
+#   v0.04
+#       fixed path to self (Thank Ciaran)
+#       added history to main.sh
+#
+#   v0.03
+#       added Emscripten makefile option
+#       cleaned up the wizard experience
+#       removed unnecessary files from the archive
+#
+#   v0.02
+#       added check for dependencies
+#
+#   v0.01
+#       initial commit
+#       added license
+#
+
 echo '##########################################################'
 echo '#          VS Code: C/C++ Project Template'
-echo '#                     v0.03'
+echo '#                     v0.04'
 echo '#'
 echo '#       By: Moros Smith <moros1138@gmail.com>'
 echo '##########################################################'
