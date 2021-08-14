@@ -82,7 +82,7 @@ cd $project_name
 ###############################################################################
 
 # This finds the line number where the base64 encoded archive lies
-PAYLOAD_LINE=$(awk '/^__PAYLOAD_BEGINS__/ { print NR + 1; exit 0; }' $0)
+PAYLOAD_LINE=$(awk '/^__PAYLOAD_BEGINS__/ { print NR + 1; exit 0; }' $SELF)
 
 # This bit does a few things in one line
 #
