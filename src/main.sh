@@ -18,11 +18,14 @@
 #       removed unnecessary files from the archive
 #
 #   v0.02
-#       added check for dependencies
+#       added check for dependency git
+#       added check for dependency curl
+#       added self awareness to assist script self loading
 #
 #   v0.01
-#       initial commit
-#       added license
+#       Makefile for building.
+#       VS Code specific tasks.json and launch.json to enable building and debugging functions.
+#       Easy to use folder structure that makes sense for most projects.
 #
 
 echo '##########################################################'
