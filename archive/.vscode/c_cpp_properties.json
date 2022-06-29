@@ -4,10 +4,9 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/include/**",
-                "/usr/include/c++/10",
-                "/usr/include/x86_64-linux-gnu/c++/10",
-                "/usr/include/c++/10/backward",
-                "/usr/lib/gcc/x86_64-linux-gnu/10/include",
+                "/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/include",
+                "/usr/local/include",
+                "/usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/include-fixed",
                 "/usr/local/include",
                 "/usr/include"
             ],

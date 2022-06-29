@@ -1,12 +1,17 @@
 #!/bin/bash
 ###############################################################################
 #          VS Code: C/C++ Project Template
-#                     v0.04
+#                     v0.06
 #
 #       By: Moros Smith <moros1138@gmail.com>
 ###############################################################################
 
 # HISTORY
+#   v0.06
+#       changed archive to refect current gcc include directories
+#
+#   v0.05
+#       switched to PGE v2.17
 #
 #   v0.04
 #       fixed path to self (Thank Ciaran)
@@ -30,7 +35,7 @@
 
 echo '##########################################################'
 echo '#          VS Code: C/C++ Project Template'
-echo '#                     v0.04'
+echo '#                     v0.06'
 echo '#'
 echo '#       By: Moros Smith <moros1138@gmail.com>'
 echo '##########################################################'
@@ -135,7 +140,7 @@ do
     #
     # https://github.com/OneLoneCoder/olcPixelGameEngine
     if [ "$lib" = "olcPixelGameEngine" ]; then
-        curl -s -L https://github.com/OneLoneCoder/olcPixelGameEngine/releases/download/v2.16/olcPixelGameEngine.h -o include/olcPixelGameEngine.h
+        curl -s -L https://github.com/OneLoneCoder/olcPixelGameEngine/releases/download/v2.17/olcPixelGameEngine.h -o include/olcPixelGameEngine.h
         curl -s https://raw.githubusercontent.com/OneLoneCoder/olcPixelGameEngine/master/olcExampleProgram.cpp -o src/main.cpp
     fi
     
