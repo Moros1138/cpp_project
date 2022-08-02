@@ -3,7 +3,7 @@
         {
             "type": "cppbuild",
             "label": "CMake Build Cache",
-            "command": "/usr/bin/cmake",
+            "command": "cmake",
             "args": ["."],
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -19,7 +19,7 @@
         {
             "type": "cppbuild",
             "label": "CMake Build Project",
-            "command": "/usr/bin/cmake",
+            "command": "cmake",
             "args": ["--build", "."],
             "options": {
                 "cwd": "${workspaceFolder}"

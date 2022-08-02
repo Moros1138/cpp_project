@@ -42,7 +42,7 @@
                 }
             ],
             "preLaunchTask": "CMake Build Project",
-            "miDebuggerPath": "/usr/bin/gdb"
+            "miDebuggerPath": "gdb"
         }
     ]
 }
