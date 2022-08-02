@@ -180,17 +180,11 @@ echo ''
 echo -n 'String replacements....'
 
 # string replacements
-sed -i "s/{{BINARY_NAME}}/$project_name/g" Makefile
-sed -i "s/{{BINARY_NAME}}/$project_name/g" Makefile.emscripten
-sed -i "s/{{BINARY_NAME}}/$project_name/g" .gitignore
+sed -i "s/{{BINARY_NAME}}/$project_name/g" CMakeLists.txt
 sed -i "s/{{BINARY_NAME}}/$project_name/g" .vscode/launch.json
 
 echo ' done.'
 echo ''
-
-# prompt for Emscripten support
-read -p "Would you like to include a Makefile to build with Emscripten? (y/n) " temp
-if [ "$temp" != "y" ]; then rm Makefile.emscripten; temp=""; fi
 
 # prompt for Git repository
 read -p "Initialize a Git Repository? (y/n) " temp
