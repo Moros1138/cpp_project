@@ -1,12 +1,16 @@
 #!/bin/bash
 ###############################################################################
 #          VS Code: C/C++ Project Template
-#                     v0.06
+#                     v0.07
 #
 #       By: Moros Smith <moros1138@gmail.com>
 ###############################################################################
 
 # HISTORY
+#
+#   v0.07
+#       switched to PGE v2.23
+#
 #   v0.06
 #       changed archive to refect current gcc include directories
 #
