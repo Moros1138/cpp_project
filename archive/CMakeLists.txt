@@ -132,7 +132,7 @@ if (UNIX)
         find_package(OpenAL REQUIRED)
         target_link_libraries(${OutputExecutable} ${OPENAL_LIBRARY})
         include_directories(${OPENAL_INCLUDE_DIRS})
-        set_target_properties(${OutputExecutable} PROPERTIES COMPILE_FLAGS "-DUSE_OPENAL")
+        target_compile_definitions(${OutputExecutable} PUBLIC USE_OPENAL)
     endif (NOT APPLE AND NOT MINGW AND NOT CYGWIN)
     
     set_target_properties(${OutputExecutable} PROPERTIES COMPILE_FLAGS "-ggdb3 -Og")
