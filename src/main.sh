@@ -39,7 +39,7 @@
 
 echo '##########################################################'
 echo '#          VS Code: C/C++ Project Template'
-echo '#                     v0.06'
+echo '#                     v0.07'
 echo '#'
 echo '#       By: Moros Smith <moros1138@gmail.com>'
 echo '##########################################################'
