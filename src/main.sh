@@ -144,7 +144,7 @@ do
     #
     # https://github.com/OneLoneCoder/olcPixelGameEngine
     if [ "$lib" = "olcPixelGameEngine" ]; then
-        curl -s -L https://github.com/OneLoneCoder/olcPixelGameEngine/releases/download/v2.23/olcPixelGameEngine.h -o include/olcPixelGameEngine.h
+        curl -s -L https://github.com/OneLoneCoder/olcPixelGameEngine/releases/latest/download/olcPixelGameEngine.h -o include/olcPixelGameEngine.h
         curl -s https://raw.githubusercontent.com/OneLoneCoder/olcPixelGameEngine/master/olcExampleProgram.cpp -o src/main.cpp
     fi
     
