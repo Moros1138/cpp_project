@@ -1,12 +1,15 @@
 #!/bin/bash
 ###############################################################################
 #          VS Code: C/C++ Project Template
-#                     v0.07
+#                     v0.08
 #
 #       By: Moros Smith <moros1138@gmail.com>
 ###############################################################################
 
 # HISTORY
+#
+#   v0.08
+#       always download latest release of PGE
 #
 #   v0.07
 #       switched to PGE v2.23
@@ -39,7 +42,7 @@
 
 echo '##########################################################'
 echo '#          VS Code: C/C++ Project Template'
-echo '#                     v0.07'
+echo '#                     v0.08'
 echo '#'
 echo '#       By: Moros Smith <moros1138@gmail.com>'
 echo '##########################################################'
