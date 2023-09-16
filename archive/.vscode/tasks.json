@@ -4,9 +4,9 @@
             "type": "cppbuild",
             "label": "CMake Build Cache",
             "command": "cmake",
-            "args": ["."],
+            "args": [".."],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${workspaceFolder}/build"
             },
             "problemMatcher": [
                 "$gcc"
@@ -22,7 +22,7 @@
             "command": "cmake",
             "args": ["--build", "."],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${workspaceFolder}/build"
             },
             "problemMatcher": [
                 "$gcc"
