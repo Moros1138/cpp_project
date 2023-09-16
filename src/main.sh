@@ -42,7 +42,7 @@
 
 echo '##########################################################'
 echo '#          VS Code: C/C++ Project Template'
-echo '#                     v0.08'
+echo '#                     v0.09'
 echo '#'
 echo '#       By: Moros Smith <moros1138@gmail.com>'
 echo '##########################################################'
@@ -77,8 +77,8 @@ read -p "Use olcPixelGameEngine? (y/n) " temp
 if [ "$temp" = "y" ]; then project_libs="${project_libs} olcPixelGameEngine"; fi
 
 # prompt for Sound PGEX
-read -p "Use olcPGEX_Sound? (y/n) " temp
-if [ "$temp" = "y" ]; then project_libs="${project_libs} olcPGEX_Sound"; temp=""; fi
+read -p "Use olcPGEX_MiniAudio? (y/n) " temp
+if [ "$temp" = "y" ]; then project_libs="${project_libs} olcPGEX_MiniAudio"; temp=""; fi
 
 # prompt for Animated Sprite PGEX
 read -p "Use olcPGEX_AnimatedSprite? (y/n) " temp
@@ -151,11 +151,11 @@ do
         curl -s https://raw.githubusercontent.com/OneLoneCoder/olcPixelGameEngine/master/olcExampleProgram.cpp -o src/main.cpp
     fi
     
-    # Javid's Sound PGEX
+    # Moros1138's MiniAudio PGEX
     #
-    # https://github.com/OneLoneCoder/olcPixelGameEngine/blob/master/Extensions/olcPGEX_Sound.h
-    if [ "$lib" = "olcPGEX_Sound" ]; then
-        curl -s https://raw.githubusercontent.com/OneLoneCoder/olcPixelGameEngine/master/Extensions/olcPGEX_Sound.h -o include/olcPGEX_Sound.h
+    # https://github.com/Moros1138/olcPGEX_MiniAudio
+    if [ "$lib" = "olcPGEX_MiniAudio" ]; then
+        curl -s https://github.com/Moros1138/olcPGEX_MiniAudio/releases/latest/download/olcPGEX_MiniAudio.h -o include/olcPGEX_MiniAudio.h
     fi
     
     # Gorbit's Gamepad PGEX
@@ -176,7 +176,7 @@ do
     #
     # https://github.com/SSBMTonberry/tileson
     if [ "$lib" = "Tileson" ]; then
-        curl -s -L https://github.com/SSBMTonberry/tileson/releases/download/v1.3.0/tileson.hpp -o include/tileson.hpp
+        curl -s -L https://github.com/SSBMTonberry/tileson/releases/latest/download/tileson.hpp -o include/tileson.hpp
     fi
     
     echo ' done.'
