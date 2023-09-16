@@ -80,10 +80,6 @@ if [ "$temp" = "y" ]; then project_libs="${project_libs} olcPixelGameEngine"; fi
 read -p "Use olcPGEX_MiniAudio? (y/n) " temp
 if [ "$temp" = "y" ]; then project_libs="${project_libs} olcPGEX_MiniAudio"; temp=""; fi
 
-# prompt for Animated Sprite PGEX
-read -p "Use olcPGEX_AnimatedSprite? (y/n) " temp
-if [ "$temp" = "y" ]; then project_libs="${project_libs} olcPGEX_AnimatedSprite"; temp=""; fi
-
 # prompt for Gamepad PGEX
 read -p "Use olcPGEX_Gamepad? (y/n) " temp
 if [ "$temp" = "y" ]; then project_libs="${project_libs} olcPGEX_Gamepad"; temp=""; fi
@@ -155,7 +151,7 @@ do
     #
     # https://github.com/Moros1138/olcPGEX_MiniAudio
     if [ "$lib" = "olcPGEX_MiniAudio" ]; then
-        curl -s https://github.com/Moros1138/olcPGEX_MiniAudio/releases/latest/download/olcPGEX_MiniAudio.h -o include/olcPGEX_MiniAudio.h
+        curl -s -L https://github.com/Moros1138/olcPGEX_MiniAudio/releases/latest/download/olcPGEX_MiniAudio.h -o include/olcPGEX_MiniAudio.h
     fi
     
     # Gorbit's Gamepad PGEX
@@ -163,13 +159,6 @@ do
     # https://github.com/gorbit99/olcPGEX_Gamepad
     if [ "$lib" = "olcPGEX_Gamepad" ]; then
         curl -s https://raw.githubusercontent.com/gorbit99/olcPGEX_Gamepad/master/olcPGEX_Gamepad.h -o include/olcPGEX_Gamepad.h
-    fi
-    
-    # SaladinAkara's Animated Sprite PGEX
-    #
-    # https://github.com/matt-hayward/olcPGEX_AnimatedSprite
-    if [ "$lib" = "olcPGEX_AnimatedSprite" ]; then
-        curl -s https://raw.githubusercontent.com/matt-hayward/olcPGEX_AnimatedSprite/master/olcPGEX_AnimatedSprite.h -o include/olcPGEX_AnimatedSprite.h
     fi
     
     # Robin Berg Pettersen's Tileson
