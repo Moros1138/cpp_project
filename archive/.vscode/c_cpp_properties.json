@@ -20,7 +20,7 @@
             "name": "Emscripten",
             "includePath": [
                 "${workspaceFolder}/include/**",
-                "/opt/emsdk/upstream/emscripten/system/include/**",
+                "/opt/emsdk/upstream/emscripten/system/include/**"
             ],
             "defines": ["__EMSCRIPTEN__"],
             "compilerPath": "/usr/bin/gcc",
