@@ -152,6 +152,7 @@ do
     # https://github.com/Moros1138/olcPGEX_MiniAudio
     if [ "$lib" = "olcPGEX_MiniAudio" ]; then
         curl -s -L https://github.com/Moros1138/olcPGEX_MiniAudio/releases/latest/download/olcPGEX_MiniAudio.h -o include/olcPGEX_MiniAudio.h
+        curl -s -L https://github.com/mackron/miniaudio/raw/master/miniaudio.h -o include/miniaudio.h
     fi
     
     # Gorbit's Gamepad PGEX
